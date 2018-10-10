@@ -44,7 +44,7 @@ class App extends Component {
       });
     } else {
       const api_call = await fetch(
-        `http://api.nbp.pl/api/cenyzlota/${startDate}/${endDate}/`
+        `https://api.nbp.pl/api/cenyzlota/${startDate}/${endDate}/`
       );
       const data = await api_call.json();
 

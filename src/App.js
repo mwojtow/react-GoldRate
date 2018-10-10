@@ -17,7 +17,7 @@ class App extends Component {
       maxValueDate: "",
       minValue: "",
       minValueDate: "",
-      median: ""
+      median: "",
     };
   }
   onChange = e => {
@@ -44,32 +44,36 @@ class App extends Component {
       return o.cena === minValue;
     });
 
-    let median = function(array) {
-      array.sort(function(a, b) {
+    const median = function(array) {
+      let arr = array;
+      arr.sort(function(a, b) {
         return a.cena - b.cena;
       });
-      var mid = array.length / 2;
+      var mid = arr.length / 2;
       return mid % 1
-        ? array[mid - 0.5].cena
-        : (array[mid - 1].cena + array[mid].cena) / 2;
+        ? arr[mid - 0.5].cena
+        : (arr[mid - 1].cena + arr[mid].cena) / 2;
     };
-
+    //default sort by date
+    const sortedDate = data.sort((a, b) => {
+      let c = new Date(a.data).getTime();
+      let d = new Date(b.data).getTime();
+      return c > d ? 1 : -1
+    });
     this.setState({
-      dane: data,
+      dane: sortedDate,
       maxValue: maxValue,
       minValue: minValue,
       maxValueDate: maxValueDate.data,
       minValueDate: minValueDate.data,
       median: median(data)
     });
-
-    console.log(this.state.median);
   };
 
   sortByPrice(arr) {
     let { togglePrice } = this.state;
     const sortedPrice = arr.sort((a, b) => {
-      return togglePrice ? b.cena > a.cena : b.cena < a.cena;
+      return (togglePrice) ? (a.cena > b.cena ? 1 : -1) : (a.cena < b.cena ? 1 : -1)
     });
     this.setState({ dane: sortedPrice, togglePrice: !togglePrice });
   }
@@ -77,24 +81,23 @@ class App extends Component {
   sortByDate(arr) {
     let { toggleDate } = this.state;
     const sortedDate = arr.sort((a, b) => {
-      let c = new Date(a.data);
-      let d = new Date(b.data);
-      return toggleDate ? c > d : c < d;
+      let c = new Date(a.data).getTime();
+      let d = new Date(b.data).getTime();
+      return (toggleDate) ? (c > d ? 1 : -1) : (c < d ? 1 : -1)
     });
     this.setState({ dane: sortedDate, toggleDate: !toggleDate });
   }
 
   render() {
     const { dane } = this.state;
-    const mappedData = dane.map(data => {
+    const mappedData = dane.map((val, key )=> {
       return (
-        <tr>
-          <td>{data.data}</td>
-          <td>{data.cena}</td>
+        <tr key={key}>
+          <td>{val.data}</td>
+          <td>{val.cena}</td>
         </tr>
       );
     });
-
     return (
       <div className="App">
         <header className="App-header">Gold rate</header>

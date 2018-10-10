@@ -1,7 +1,7 @@
 {
   "main.css": "/react-GoldRate/static/css/main.43b187e6.chunk.css",
-  "main.js": "/react-GoldRate/static/js/main.e5f865f6.chunk.js",
-  "main.js.map": "/react-GoldRate/static/js/main.e5f865f6.chunk.js.map",
+  "main.js": "/react-GoldRate/static/js/main.677b6722.chunk.js",
+  "main.js.map": "/react-GoldRate/static/js/main.677b6722.chunk.js.map",
   "static/js/1.5a66ce2e.chunk.js": "/react-GoldRate/static/js/1.5a66ce2e.chunk.js",
   "static/js/1.5a66ce2e.chunk.js.map": "/react-GoldRate/static/js/1.5a66ce2e.chunk.js.map",
   "runtime~main.js": "/react-GoldRate/static/js/runtime~main.ee04af54.js",
@@ -9,6 +9,6 @@
   "static/media/App.css": "/react-GoldRate/static/media/bg-gold.e197394f.jpg",
   "static/css/main.43b187e6.chunk.css.map": "/react-GoldRate/static/css/main.43b187e6.chunk.css.map",
   "index.html": "/react-GoldRate/index.html",
-  "precache-manifest.80cb416d65e06951ff092f9970facc07.js": "/react-GoldRate/precache-manifest.80cb416d65e06951ff092f9970facc07.js",
+  "precache-manifest.11ed86c6ba734825764f14c86642caa1.js": "/react-GoldRate/precache-manifest.11ed86c6ba734825764f14c86642caa1.js",
   "service-worker.js": "/react-GoldRate/service-worker.js"
 }
